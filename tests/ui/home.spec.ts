@@ -1,4 +1,3 @@
-import { faker } from '@faker-js/faker';
 import { mergeTests, expect } from '@playwright/test';
 import { Language, blockSearchResults, homeFixture } from '@playwright/ui';
 import { allure } from 'allure-playwright';
@@ -60,12 +59,12 @@ test.describe('example group', () => {
   });
   test.describe('Mocking network responses', () => {
     test.beforeEach(async ({ context }) => {
-      await test.step('And: I have pattern without actual results', async () => {
+      await test.step('And: I have pattern without results', async () => {
         await blockSearchResults(context);
       });
     });
     test('No search results', async ({ home }) => {
-      await home.search(faker.string.alphanumeric(7));
+      await home.search('Locators');
       await expect(home.foundResults).toHaveCount(0);
     });
   });
