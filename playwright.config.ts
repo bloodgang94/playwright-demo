@@ -34,5 +34,15 @@ export default defineConfig({
       },
       testMatch: ['**/api/**'],
     },
+    {
+      name: 'chromium ui',
+      use: {
+        browserName: 'chromium',
+        viewport: { width: 1920, height: 1080 },
+        baseURL: process.env.UI_URL,
+        ignoreHTTPSErrors: true,
+      },
+      testMatch: ['**/ui/**'],
+    },
   ],
 });
