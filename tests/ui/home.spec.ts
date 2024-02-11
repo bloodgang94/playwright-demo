@@ -64,6 +64,7 @@ test.describe('example group', () => {
       });
     });
     test('No search results', async ({ home }) => {
+      await allure.story('Mocking no results for search pattern');
       await home.search('Locators');
       await expect(home.foundResults).toHaveCount(0);
     });
